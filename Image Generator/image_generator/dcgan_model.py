@@ -25,7 +25,6 @@ from read_data import *
 
 print("Enter the root directory")
 x = input()
-# root = "D:/Document/06 DAAN 897 - Deep Learning/Project/GAN/"
 root = x
 
 #model creation start
@@ -75,26 +74,18 @@ def discriminator():
 
     model.add(Conv2D(32, 5, strides=2, input_shape=(32, 32, 3), padding='same'))
     model.add(PReLU())
-    # model.add(LeakyReLU(alpha=0.2))
-    # model.add(BatchNormalization(momentum=0.5))
     model.add(Dropout(dropout))
 
     model.add(Conv2D(64, 5, strides=2, padding='same'))
     model.add(PReLU())
-    # model.add(LeakyReLU(alpha=0.2))
-    # model.add(BatchNormalization(momentum=0.5))
     model.add(Dropout(dropout))
 
     model.add(Conv2D(128, 5, strides=2, padding='same'))
     model.add(PReLU())
-    # model.add(LeakyReLU(alpha=0.2))
-    # model.add(BatchNormalization(momentum=0.5))
     model.add(Dropout(dropout))
 
     model.add(Conv2D(256, 5, strides=2, padding='same'))
     model.add(PReLU())
-    # model.add(LeakyReLU(alpha=0.2))
-    # model.add(BatchNormalization(momentum=0.5))
     model.add(Dropout(dropout))
 
     model.add(Flatten())
@@ -240,10 +231,10 @@ im_path = train(train_data, gen, dis, stacked_G_D, epoch, run, plot_interval=int
 print ("Execution complete! Check the images generated at this location - ")
 print (str(im_path))
 
-### needed in csae you need to reload a previous model
+### needed in case you need to reload a previous model
 gen, dis, stacked_G_D = reload_model(p, run, epoch)
 
-#needed in case you need to generate samples from your generator
+# needed in case you need to generate samples from your generator
 os.mkdir(root + "/test_samples/")
 plot_img(10, root, gen)
 
