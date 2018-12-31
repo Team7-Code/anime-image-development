@@ -47,3 +47,11 @@ The process of estimating a high resolution image using a low resolution image i
 ###### Results
 ![model_output](https://github.com/Team7-Code/anime-image-development/blob/dev/Super%20Resolution/Sample%20Outputs/img1.png)
 
+#### Execution and Scalability
+* Image Generator – It took close to four days to train the model on the NVIDIA GTX 1050 GPU to obtain the images shown above. The code is capable of being scaled up to include huge datasets and has the functionality to visualize gradients, losses and callbacks to Tensor-board for further visualizations
+* Super Resolution –  It took close to five days to train the model on the NVIDIA GTX 1050 Ti GPU. This model can be scaled to up sample images of any dimension by four times if trained upon them. The upscaling times can also be parametrized. Although, the above mentioned points are heavily limited by the available infrastructure. 
+
+#### Limitations
+* Image Generator – The model is yet not able to create images equivalent to the ones it was trained upon, so further training is required.
+* Super Resolution – The model is only able to accept images of dimension 32x32 and scale them up to four times of the original resolution. Also, since the models fails to recognize some features like spectacles, it needs to be trained more on a larger dataset with a variety of images.
+
